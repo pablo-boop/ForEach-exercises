@@ -50,14 +50,14 @@ function createCategory() {
     categoryList.addCategory(categoryName);
     //console.log(categoryName);
     console.log(categoryList.categories);
-    clearFormFields()
+    clearFormFields();
+    displayCategoriesAndProducts()
 }
 
 function createProduct() {
     const productName = "Bolo";
     const productPrice = 20;
     const productCategory = categoryList.categories[0];
-
     productList.addProduct(productName, productPrice, productCategory)
     //console.log(productList.products)
 }
@@ -67,4 +67,37 @@ function clearFormFields() {
     document.getElementById("productName").value = "";
     document.getElementById("productPrice").value = "";
     document.getElementById("productCategory").value = "";
+}
+
+function displayCategoriesAndProducts() {
+    let content = "";
+
+    categoryList.categories.forEach((category) => {
+        content += `
+            <li>
+                <div class="categoriesList">
+                    <span><b>Categoria: </b>${category.name}</span>
+                    <div>
+                        <button class="editButton"><i class="fa-solid fa-pencil"></i></button>
+                        <button class="deleteButton"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <ul class="productListByCategory"> `;
+                category.products.forEach((product) => {
+                    content += `
+                        <li>
+                            <div class="productsList">
+                                <span><b>Produto: </b>${product.name} - <b>Preço: </b> R$${product.price}</span>
+                            <div>
+                                <button class="editButton"><i class="fa-solid fa-pencil"></i></button>
+                                <button class="deleteButton"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                            </div>`;
+                });
+                content += `
+                    </ul>
+                </li>
+                `
+    });
+    document.getElementById("categoriesList").innerHTML = content;
 }
