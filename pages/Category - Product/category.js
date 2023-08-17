@@ -50,8 +50,8 @@ function createCategory() {
     categoryList.addCategory(categoryName);
     //console.log(categoryName);
     console.log(categoryList.categories);
-    clearFormFields();
     displayCategoriesAndProducts()
+    clearFormFields();
 }
 
 function createProduct() {
@@ -60,6 +60,8 @@ function createProduct() {
     const productCategory = categoryList.categories[0];
     productList.addProduct(productName, productPrice, productCategory)
     //console.log(productList.products)
+    displayCategoriesAndProducts()
+    clearFormFields()
 }
 
 function clearFormFields() {
