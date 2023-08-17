@@ -80,3 +80,27 @@ h2 {
     justify-content: space-between;
     width: 100%;
 }
+
+.listContainer {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+.listContainer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.listContainer li {
+    margin-bottom: 0.62rem;
+    padding: 0.62rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
