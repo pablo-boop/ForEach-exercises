@@ -18,7 +18,7 @@ class Product {
 class CategoryService {
     constructor() {
         this.categories = [];
-        this.nextCategoryId = 0;
+        this.nextCategoryId = 1;
     }
 
     addCategory(name) {
@@ -31,7 +31,7 @@ class CategoryService {
 class ProductService {
     constructor() {
         this.products = [];
-        this.nextProductsId = 0;
+        this.nextProductsId = 1;
     }
 
     addProduct(name, price, category) {
@@ -46,9 +46,11 @@ const categoryList = new CategoryService();
 const productList = new ProductService();
 
 function createCategory() {
-    const categoryName = "Doce";
+    const categoryName = document.getElementById("categoryName").value;
     categoryList.addCategory(categoryName);
+    //console.log(categoryName);
     console.log(categoryList.categories);
+    clearFormFields()
 }
 
 function createProduct() {
@@ -57,5 +59,12 @@ function createProduct() {
     const productCategory = categoryList.categories[0];
 
     productList.addProduct(productName, productPrice, productCategory)
-    console.log(productList.products)
+    //console.log(productList.products)
+}
+
+function clearFormFields() {
+    document.getElementById("categoryName").value = "";
+    document.getElementById("productName").value = "";
+    document.getElementById("productPrice").value = "";
+    document.getElementById("productCategory").value = "";
 }
